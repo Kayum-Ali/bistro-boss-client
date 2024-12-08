@@ -52,13 +52,14 @@ nav{
         justify-content: flex-start;
         position: absolute;
         top: 70px;
-        z-index: 50;
+        z-index: 10;
         left: -300px;
         width: 300px;
         height: 100vh;
         background-color: #2a3239 ;
         box-shadow: 0 40px 60px rgba(0,0,0,0.1);
         padding: 40px 0 0 10px; 
+        opacity: 1;
         transition: 0.3s ease-in-out;
     
     }
