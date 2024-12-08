@@ -12,7 +12,7 @@ const Navbar = () => {
 
     return (
         // 
-        <div className="bg-[#232323] z-50 text-white fixed w-full opacity-80">
+        <div className="bg-[#232323] z-50 text-white fixed w-full opacity-90">
             <nav>
                 <div id="mobile" className="text-white flex">
                     {
