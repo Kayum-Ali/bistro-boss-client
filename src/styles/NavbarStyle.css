@@ -13,7 +13,7 @@ nav{
 }
 #navbar li{
     list-style: none;
-    padding:0 20px;
+    padding:0 10px;
     position: relative;
 
 }
@@ -21,7 +21,7 @@ nav{
     color: #fff;
     text-decoration: none;
     font-weight: 600;
-    font-size: 1.3rem;
+   
     transition: 0.3s ease-in-out;
 }
 

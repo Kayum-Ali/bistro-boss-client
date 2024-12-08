@@ -29,15 +29,15 @@ const Navbar = () => {
                     </Link>
                 </div>
                 <div>
-                    <ul id="navbar" className={`${toggle ? '#navbar active' : '#navbar'}`}>
+                    <ul id="navbar" className={`${toggle ? '#navbar active' : '#navbar'} uppercase`}>
                         <li><NavLink to="/" className="">Home</NavLink></li>
-                        <li><NavLink to="/about" className="text-[#fff]">About</NavLink></li>
-                        <li><NavLink to="/contact" className="text-[#fff]">Contact</NavLink></li>
-                        <li><NavLink to="/blog" className="text-[#fff]">Blog</NavLink></li>
-                        <li><NavLink to="/login" className="text-[#fff]">Login</NavLink></li>
+                        <li><NavLink to="/about" className="text-[#fff]">CONTACT us</NavLink></li>
+                        <li><NavLink to="/contact" className="text-[#fff]">DASHBOARD</NavLink></li>
+                        <li><NavLink to="/blog" className="text-[#fff]">Our Menu</NavLink></li>
+                        <li><NavLink to="/login" className="text-[#fff]">Our Shop</NavLink></li>
                         <li><NavLink to="/signup" className="text-[#fff]">Sign Up</NavLink></li>
 
-                        <div className=" text-xl items-center font-semibold text-white   gap-5 hidden lg:flex ">
+                        <div className="  items-center font-semibold text-white   gap-5 hidden lg:flex ">
                             <div className="relative">
                                 <FaCartShopping className="text-white p-2 rounded-full text-4xl bg-[#17cf97]" />
                                 <h2 className="absolute bottom-0 bg-red-600 p-1 rounded-full h-[20px] flex items-center justify-center right-0 text-xs">0</h2>
