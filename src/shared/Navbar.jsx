@@ -13,7 +13,7 @@ const Navbar = () => {
     return (
         // 
         <div className="bg-[#232323] z-50 text-white fixed w-full opacity-90">
-            <nav>
+            <nav className="container mx-auto">
                 <div id="mobile" className="text-white flex">
                     {
                         toggle ? <AiOutlineClose className="text-2xl " onClick={() => setToggle(!toggle)} />

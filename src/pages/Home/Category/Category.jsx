@@ -15,7 +15,7 @@ import { Pagination } from "swiper/modules";
 
 const Category = () => {
     return (
-        <section>
+        <section className="container mx-auto">
             <SectionTitle 
             subHeading={"From 11.00am to 10.00pm"}
             heading={"Order Online"}
@@ -28,7 +28,7 @@ const Category = () => {
                     clickable: true,
                 }}
                 modules={[Pagination]}
-                className="mySwiper mb-24"
+                className="mySwiper mb-24 "
             >
                 <SwiperSlide>
                     <img src={slide1} alt="" />
