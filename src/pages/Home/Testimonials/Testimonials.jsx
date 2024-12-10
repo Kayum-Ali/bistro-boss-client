@@ -6,11 +6,12 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import { useEffect, useState } from "react";
-import { Rating } from "@smastrom/react-rating";
+// import { Rating } from "@smastrom/react-rating";
 import '@smastrom/react-rating/style.css'
 import SectionTitle from "../../../components/SectionTitle";
 import { Navigation } from "swiper/modules";
 import { FaQuoteLeft } from "react-icons/fa";
+import { Rating } from "@smastrom/react-rating";
 
 
 const Testimonials = () => {
