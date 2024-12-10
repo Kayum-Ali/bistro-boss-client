@@ -8,7 +8,7 @@ const Featured = () => {
     return (
         <div className="featured-item bg-fixed text-white pt-8 my-20">
             <SectionTitle subHeading="check it out" heading="Featured Item" ></SectionTitle>
-            <div className="flex flex-col md:flex-row lg:flex-row justify-center items-center bg-[rgba(21,21,21,0.7)] h-full pb-10 gap-8  lg:pb-20 lg:pt-12 pt-5 lg:px-36 px-5">
+            <div className="flex flex-col md:flex-row lg:flex-row justify-center items-center bg-[rgba(21,21,21,0.7)] h-full pb-10 gap-8  lg:pb-20 lg:pt-12 pt-5 lg:px-36 px-5 container mx-auto">
                 <div>
                     <img src={featuredImg} alt="" />
                 </div>
