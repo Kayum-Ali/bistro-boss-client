@@ -32,6 +32,12 @@ const Menu = () => {
             <MenuCategory items={pizza}></MenuCategory>
 
             <Cover title="Salad" bgImg="https://res.cloudinary.com/dqescabbl/image/upload/v1733889298/salad-bg_w0twhy.jpg" description="Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book." bgColor={'bg-[#15151599]'}></Cover>
+
+            <MenuCategory items={salad}></MenuCategory>
+
+            <Cover title="SOUPS" bgImg="https://res.cloudinary.com/dqescabbl/image/upload/v1733889574/soup-bg_bnnp6z.jpg" description="Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book." bgColor={'bg-[#15151599]'}></Cover>
+
+            <MenuCategory items={soup}></MenuCategory>
            
 
         </div>
