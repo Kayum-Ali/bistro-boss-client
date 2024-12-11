@@ -43,7 +43,7 @@ const Testimonials = () => {
                                 readOnly
                             />
                             <FaQuoteLeft className="text-4xl lg:my-5 my-3" />
-                            <p className="lg:py-8 py-3 text-center w-2/3 mx-auto">{review.details}</p>
+                            <p className="lg:py-8 py-3 text-center lg:w-2/3 mx-auto">{review.details}</p>
                             <h3 className="text-2xl text-orange-400">{review.name}</h3>
                         </div>
                     </SwiperSlide>)
