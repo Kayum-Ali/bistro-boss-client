@@ -1,9 +1,13 @@
+import { Link } from "react-router-dom";
+import Cover from "../../../shared/Cover";
 import MenuItem from "../../../shared/MenuItem/MenuItem";
 
 import PropTypes from 'prop-types';
-const MenuCategory = ({items}) => {
+const MenuCategory = ({ items, title, image }) => {
     return (
         <div className="container mx-auto my-10">
+            {title && <Cover title={title} bgImg={image} description="Would you like to try a dish?" bgColor={'bg-[#15151599]'}>
+            </Cover>}
             <div className="grid md:grid-cols-2 gap-10 px-5">
 
                 {
@@ -11,7 +15,9 @@ const MenuCategory = ({items}) => {
                 }
             </div>
             <div className={`text-center`}>
-                <button  className="btn btn-outline border-0 border-b-4 mt-4 ">ORDER YOUR FAVOURITE FOOD</button>
+                <Link to={`/order/${title}`}>
+                    <button className="btn btn-outline border-0 border-b-4 mt-4 uppercase">ORDER YOUR {title} FOOD</button>
+                </Link>
             </div>
 
         </div>
@@ -20,5 +26,7 @@ const MenuCategory = ({items}) => {
 
 MenuCategory.propTypes = {
     items: PropTypes.arrayOf(PropTypes.object).isRequired,
+    title: PropTypes.string,
+    image: PropTypes.string
 };
 export default MenuCategory;
