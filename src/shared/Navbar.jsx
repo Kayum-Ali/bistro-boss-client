@@ -36,6 +36,7 @@ const Navbar = () => {
                         <li><NavLink to="/menu" className="text-[#fff]">Our Menu</NavLink></li>
                         <li><NavLink to="/order/salad" className="text-[#fff]">Our Shop</NavLink></li>
                         <li><NavLink to="/signup" className="text-[#fff]">Sign Up</NavLink></li>
+                        <li><NavLink to="/login" className="text-[#fff]">Login</NavLink></li>
 
                         <div className="  items-center font-semibold text-white   gap-5 hidden lg:flex ">
                             <div className="relative">
