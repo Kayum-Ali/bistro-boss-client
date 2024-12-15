@@ -13,7 +13,7 @@ const Order = () => {
     const categories = ['salad', 'pizza', 'soup', 'desert', 'drinks']
     const initialIndex = categories.indexOf(category)
     const [menu] = useMenu();
-    console.log(tabIndex); 
+    
     const [tabIndex, setTabIndex] = useState(initialIndex);
     const dessert = menu.filter(item => item.category === "dessert")
     const soup = menu.filter(item => item.category === "soup")
@@ -24,7 +24,7 @@ const Order = () => {
         <div>
             <Cover bgImg="https://res.cloudinary.com/dqescabbl/image/upload/v1733894430/banner2_ikfrfe.jpg" title="Our Shop" description="Would you like to try a dish?" bgColor={'bg-[#15151599]'}></Cover>
             <div className="container mx-auto my-5 px-5 lg:px-0">
-                <Tabs defaultIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
+        <Tabs defaultIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
                     <TabList className={'text-sm lg:text-base mb-3 text-center'}>
                         <Tab>Salad</Tab>
                         <Tab>Pizza</Tab>
