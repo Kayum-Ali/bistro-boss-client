@@ -1,21 +1,44 @@
-import { useEffect, useRef, useState } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
 import authentication from '../../assets/others/authentication2.png'
 import { FaRegEye, FaRegEyeSlash } from 'react-icons/fa';
 import { loadCaptchaEnginge, LoadCanvasTemplate,validateCaptcha } from 'react-simple-captcha';
+import { AuthContext } from '../../context/AuthProvider';
 
 const Login = () => {
     const userRef = useRef()
+    const {signIn} = useContext(AuthContext)
     const [desabled, setDesabled] = useState(true)
-    const [show, setShow] = useState(false)
+    const [validate , setValidate] = useState(true)
+    const [captchaValue, setCaptchaValue] = useState('')
+    const [show, setShow] = useState(true)
+
     const handleSubmit = (e) => {
         e.preventDefault()
         const email = e.target.email.value;
         const password = e.target.password.value;
-        console.log(email, password);
+        signIn(email, password)
+        // .then(result => {
+
+        // })
+        
     }
 
+    const handleCaptchaChange = (e) => {
+        const value = e.target.value;
+        setCaptchaValue(value);
+      
+        // Enable Validate button if captcha length is 6
+        if (value.length === 6) {
+          setValidate(false); // Enable Validate button
+        } else {
+          setValidate(true); // Disable Validate button
+        }
+      };
     const handleVelidate = ()=>{
         const user_captcha_Value = userRef.current.value;
+    //    const  lengt = useRef.form.length
+        console.log(userRef , typeof(captchaValue.length));
+       
         if(validateCaptcha(user_captcha_Value)){
             setDesabled(false);
         }
@@ -67,8 +90,8 @@ const Login = () => {
                             <label className="label">
                                <LoadCanvasTemplate />
                             </label>
-                            <input ref={userRef} type="text" name='captcha' placeholder="type the text avobe" className="input input-bordered" required />
-                            <button onClick={handleVelidate} className='btn mt-5'>Validate</button>
+                            <input ref={userRef} onChange={handleCaptchaChange} type="text" name='captcha' placeholder="type the text avobe" className="input input-bordered" required />
+                            <button disabled={validate}  onClick={handleVelidate} className={` ${validate ? 'bg-gray-400 cursor-not-allowed' : 'bg-gray-600 hover:bg-gray-800 cursor-pointer text-white'} py-2.5 rounded-lg bg mt-5`}>Validate</button>
                         </div>
                         <div className="form-control mt-6">
 
