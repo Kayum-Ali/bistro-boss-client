@@ -2,12 +2,20 @@ import { Link, NavLink } from "react-router-dom";
 import '../styles/NavbarStyle.css'
 import { RxHamburgerMenu } from "react-icons/rx";
 import { AiOutlineClose } from "react-icons/ai";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { FaCartShopping } from "react-icons/fa6";
 import { FaUserCircle } from "react-icons/fa";
+import { AuthContext } from "../context/AuthProvider";
 
 
 const Navbar = () => {
+    const {logOut} = useContext(AuthContext)
+    const handleSignOut = () =>{
+       logOut()
+       .then( ()=>{
+        
+       })
+    }
     const [toggle, setToggle] = useState(false)
 
     return (
@@ -43,7 +51,7 @@ const Navbar = () => {
                                 <FaCartShopping className="text-white p-2 rounded-full text-4xl bg-[#17cf97]" />
                                 <h2 className="absolute bottom-0 bg-red-600 p-1 rounded-full h-[20px] flex items-center justify-center right-0 text-xs">0</h2>
                             </div>
-                            <h2>Sign Out</h2>
+                            <h2 onClick={handleSignOut}>Sign Out</h2>
                             <FaUserCircle className="text-white text-4xl" />
                         </div>
 

@@ -20,9 +20,10 @@ const Login = () => {
         const email = e.target.email.value;
         const password = e.target.password.value;
         signIn(email, password)
-        // .then(result => {
+        .then(result => {
+            console.log(result.user);
 
-        // })
+        })
 
     }
 
