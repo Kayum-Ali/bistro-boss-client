@@ -3,13 +3,13 @@ import authentication from '../../assets/others/authentication2.png'
 import { FaGithub, FaRegEye, FaRegEyeSlash } from 'react-icons/fa';
 import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-simple-captcha';
 import { AuthContext } from '../../context/AuthProvider';
-import { Link } from 'react-router-dom';
+import { Link,  } from 'react-router-dom';
 import { BiLogoFacebook } from 'react-icons/bi';
 import { FcGoogle } from 'react-icons/fc';
 
 const Login = () => {
     const userRef = useRef()
-    const { signIn } = useContext(AuthContext)
+    const { signIn, } = useContext(AuthContext)
     const [desabled, setDesabled] = useState(true)
     const [validate, setValidate] = useState(true)
     const [captchaValue, setCaptchaValue] = useState('')
@@ -22,7 +22,6 @@ const Login = () => {
         signIn(email, password)
         .then(result => {
             console.log(result.user);
-
         })
 
     }

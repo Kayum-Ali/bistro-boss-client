@@ -4,12 +4,14 @@ import { Link } from "react-router-dom";
 import { BiLogoFacebook } from "react-icons/bi";
 import { FcGoogle } from "react-icons/fc";
 import authentication from '../../assets/others/authentication2.png'
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
+import { AuthContext } from "../../context/AuthProvider";
 
 
 
 const SignUp = () => {
+    const {createUser} = useContext(AuthContext)
     const {
         register,
         handleSubmit,
@@ -19,6 +21,11 @@ const SignUp = () => {
 
       const onSubmit = (data) => {
         console.log(data)
+        createUser(data.email, data.password)
+        .then(result => {
+            const loggedUser = result.user;
+            console.log('Logged user', loggedUser);
+        })
     }
     console.log(watch("name"))
 
@@ -40,20 +47,31 @@ const SignUp = () => {
                             <label className="label">
                                 <span className="label-text">Name</span>
                             </label>
-                            <input type="text" {...register("name")} name='name' placeholder="name" className="input input-bordered" required />
+                            <input type="text" {...register("name",{required: true})} name='name' placeholder="name" className="input input-bordered"  />
+                            {errors.name && <span className="text-red-600">Name is required</span>}
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Email</span>
                             </label>
-                            <input type="email" {...register("email")} name='email' placeholder="email" className="input input-bordered" required />
+                            <input type="email" {...register("email")} name='email' placeholder="email" className="input input-bordered"  />
                         </div>
                         <div className="form-control relative">
                             <label className="label">
                                 <span className="label-text">Password</span>
                             </label>
-                            <input {...register("password")} type={`${show ? 'password' : 'text'}`} name='password' placeholder="password" className="input input-bordered" required />
-                            <div className='absolute top-1/2 flex right-3 text-xl -translate-y-1/2'>
+                            <input {...register("password",
+                                 {required: true,
+                                  minLength: 6, 
+                                  maxLength:20,
+                                  pattern: /(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*\W)(?!.* )/,
+                                })}
+                                   type={`${show ? 'password' : 'text'}`} name='password' placeholder="password" className="input input-bordered"  />
+                            {errors.password?.type === 'required' && <span className="text-red-600">Password is required</span>}
+                            {errors.password?.type === 'minLength' && <span className="text-red-600" > minimum 6 characters</span>}
+                            {errors.password?.type === 'maxLength' && <span className="text-red-600">maximum 20 characters</span>}
+                            {errors.password?.type === 'pattern' && <span className="text-red-600">Password must be 6 character, one lowarcase & one uppercase & one special character</span>}
+                            <div className='absolute top-1/2 flex right-3 text-xl translate-y-1/2'>
                                 {
 
                                     show ? <FaRegEyeSlash onClick={() => setShow(!show)} /> : <FaRegEye onClick={() => setShow(!show)} />
