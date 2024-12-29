@@ -9,6 +9,7 @@ import { AuthContext } from "../context/AuthProvider";
 
 
 const Navbar = () => {
+    const { user } = useContext(AuthContext)
     const {logOut} = useContext(AuthContext)
     const handleSignOut = () =>{
        logOut()
@@ -43,15 +44,17 @@ const Navbar = () => {
                         <li><NavLink to="/contact" className="text-[#fff]">DASHBOARD</NavLink></li>
                         <li><NavLink to="/menu" className="text-[#fff]">Our Menu</NavLink></li>
                         <li><NavLink to="/order/salad" className="text-[#fff]">Our Shop</NavLink></li>
-                        <li><NavLink to="/signup" className="text-[#fff]">Sign Up</NavLink></li>
-                        <li><NavLink to="/login" className="text-[#fff]">Login</NavLink></li>
+                       
+                        {
+                            user ? '' : <li><NavLink to="/login" className="text-[#fff]">Login</NavLink></li>
+                        }
 
                         <div className="  items-center font-semibold text-white   gap-5 hidden lg:flex ">
                             <div className="relative">
                                 <FaCartShopping className="text-white p-2 rounded-full text-4xl bg-[#17cf97]" />
                                 <h2 className="absolute bottom-0 bg-red-600 p-1 rounded-full h-[20px] flex items-center justify-center right-0 text-xs">0</h2>
                             </div>
-                            <h2 onClick={handleSignOut}>Sign Out</h2>
+                           {user ?  <h2 onClick={handleSignOut}>Sign Out</h2> : ''}
                             <FaUserCircle className="text-white text-4xl" />
                         </div>
 
